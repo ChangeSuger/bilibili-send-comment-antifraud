@@ -23,8 +23,8 @@ jobs:
 
       - name: Build
         run: |
-          pnpm ci
-          pnpm run build
+          npm install
+          npm run build
 
       - name: Create Release
         id: create_release
