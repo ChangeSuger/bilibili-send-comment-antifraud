@@ -30,4 +30,16 @@ export type Reply = {
   invisible: boolean;
 }
 
-// export const
+export type AddReplyResponse = {
+  code: number;
+  data: {
+    reply: Reply;
+  }
+}
+
+export type GetReplyResponse = {
+  code: number;
+  data: {
+    replies: Reply[];
+  }
+}
