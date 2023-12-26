@@ -34,7 +34,7 @@ jobs:
           tag: ${{ github.ref_name }}
           name: ${{ github.ref_name }}
           artifacts: |
-            "dist/*.js"
+            dist/bilibili-send-comment-antifraud.user.js
           allowUpdates: true
           artifactErrorsFailBuild: true
           draft: false
