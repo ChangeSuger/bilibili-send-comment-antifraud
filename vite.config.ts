@@ -10,6 +10,7 @@ export default defineConfig({
         // icon: 'https://vitejs.dev/logo.svg',
         namespace: 'npm/vite-plugin-monkey',
         match: ['https://*.bilibili.com/*'],
+        grant: ['unsafeWindow'],
       },
     }),
   ],

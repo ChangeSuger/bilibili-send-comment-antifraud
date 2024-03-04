@@ -1,4 +1,5 @@
 import type { Reply, AddReplyResponse, GetReplyResponse } from './types';
+import { unsafeWindow } from '$';
 
 const BILIBILI_API = {
   ADD_COMMENT: '//api.bilibili.com/x/v2/reply/add',
@@ -8,12 +9,13 @@ const BILIBILI_API = {
 
 const RESPONSE_CODE = {
   SUCCESS: 0,
-  DELETED: 12022, // "已经被删除了"
+  // "已经被删除了"
+  DELETED: 12022,
 };
 
-const { fetch: originalFetch } = window;
+const { fetch: originalFetch } = unsafeWindow;
 
-window.fetch = async function (input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
+unsafeWindow.fetch = async function (input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
   const response: Response = await originalFetch(input, init);
 
   if (String(input).includes(BILIBILI_API.ADD_COMMENT)) {
